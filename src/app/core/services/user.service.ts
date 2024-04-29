@@ -5,14 +5,15 @@ import { Observable, throwError } from 'rxjs';
 import { IUpdatePassword } from '../models/updatePassword.interface';
 import { IDecodedToken } from '../models/decoded.interface';
 import { jwtDecode } from 'jwt-decode';
+import { environment } from '@environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-  private readonly VerifyAccountUrl = 'http://localhost:3000/user/verify-email';
-  private readonly RecoverPasswordUrl = 'http://localhost:3000/user/recover-password';
-  private readonly GetProfilePersonUrl = 'http://localhost:3000/user';
+  private readonly VerifyAccountUrl = `${environment.API_URL}/user/verify-email`;
+  private readonly RecoverPasswordUrl = `${environment.API_URL}/user/recover-password`;
+  private readonly GetProfilePersonUrl = `${environment.API_URL}}/user`;
 
-  constructor(private readonly httpRequestClient: HttpClient) {}
+  constructor(private readonly httpRequestClient: HttpClient) { }
 
   verifyEmail(form: IVerifyEmail) {
     return this.httpRequestClient.post(`${this.VerifyAccountUrl}`, form);

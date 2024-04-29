@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IAuth } from '../models/auth.interface';
-import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { Observable } from 'rxjs';
+import { IAuth } from '../models/auth.interface';
 import { IDecodedToken } from '../models/decoded.interface';
+import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly apiLoginUrl = 'http://localhost:3000/user/validate-user';
+  private readonly apiLoginUrl = `${environment.API_URL}/user/validate-user`;
 
-  constructor(private readonly httpRequest: HttpClient, private router: Router) {}
+  constructor(private readonly httpRequest: HttpClient, private router: Router) { }
 
   validateAuth(credentials: IAuth): Observable<IAuth> {
     return this.httpRequest.post<IAuth>(this.apiLoginUrl, credentials);

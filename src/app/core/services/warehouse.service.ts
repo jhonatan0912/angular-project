@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
 import { IWarehouse } from '../models/warehouse.interface';
 
@@ -7,10 +8,10 @@ import { IWarehouse } from '../models/warehouse.interface';
   providedIn: 'root',
 })
 export class WarehouseService {
-  private readonly CreateArticleUrl = 'http://localhost:3000/almacen/create-article';
-  private readonly GetArticlesUrl = 'http://localhost:3000/almacen/get-article';
+  private readonly CreateArticleUrl = `${environment.API_URL}/almacen/create-article`;
+  private readonly GetArticlesUrl = `${environment.API_URL}/almacen/get-article`;
 
-  constructor(private readonly httpRequestClient: HttpClient) {}
+  constructor(private readonly httpRequestClient: HttpClient) { }
 
   createArticle(formData: FormData): Observable<any> {
     return this.httpRequestClient.post(this.CreateArticleUrl, formData);
