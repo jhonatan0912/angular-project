@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../../core/services/auth.service';
 import { Router, RouterModule } from '@angular/router';
-import { ErrorService } from '../../core/services/error.service';
+import { AuthService, ErrorService } from '@core/services';
+import { NavbarComponent } from '@shared/components';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +16,7 @@ export class LoginComponent implements OnInit {
   errorMessage: string | null = null;
   alerForm: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder, private errorService: ErrorService) {}
+  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder, private errorService: ErrorService) { }
 
   ngOnInit(): void {
     this.authForm = this.formBuilder.group({

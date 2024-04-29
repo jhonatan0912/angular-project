@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../core/services/user.service';
-import { Person } from '../../../core/models/person.cls';
+import { Person } from '@core/models';
+import { UserService } from '@core/services';
 
 @Component({
   selector: 'app-navbar-dashboard',

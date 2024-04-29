@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { NavbarDashboardComponent } from '../../shared/components/navbar-dashboard/navbar-dashboard.component';
+import { NavbarDashboardComponent } from '@shared/components';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -8,4 +8,4 @@ import { NavbarDashboardComponent } from '../../shared/components/navbar-dashboa
   imports: [CommonModule, NavbarDashboardComponent],
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {}
+export class DashboardComponent { }

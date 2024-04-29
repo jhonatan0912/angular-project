@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
-import { UserService } from '../../core/services/user.service';
+import { UserService } from '@core/services';
+import { NavbarComponent } from '@shared/components';
 
 @Component({
   selector: 'app-recover-password',
@@ -19,7 +19,7 @@ export class RecoverPasswordComponent implements OnInit {
   uid: string | null = null;
   token: string | null = null;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private route: ActivatedRoute) {}
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.recoverPasswordForm = this.formBuilder.group({

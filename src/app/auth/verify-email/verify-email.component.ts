@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
-import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UserService } from '../../core/services/user.service';
+import { RouterModule } from '@angular/router';
+import { UserService } from '@core/services';
+import { NavbarComponent } from '@shared/components';
 
 @Component({
   selector: 'app-verify-email',
@@ -16,7 +16,7 @@ export class VerifyEmailComponent implements OnInit {
   verifyAccountForm!: FormGroup;
   alertForm: boolean = false;
 
-  constructor(private readonly userservice: UserService, private readonly formBuilder: FormBuilder) {}
+  constructor(private readonly userservice: UserService, private readonly formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.verifyAccountForm = this.formBuilder.group({

@@ -1,15 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NavbarDashboardComponent } from '../../shared/components/navbar-dashboard/navbar-dashboard.component';
-import { WarehouseService } from '../../core/services/warehouse.service';
-import { throwError } from 'rxjs';
-import { IStorageStock } from '../../core/models/storage.interface';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { FilterPipe } from '../../shared/pipes/filter.pipe';
-import { CapitalizePipe } from '../../shared/pipes/capitalize.pipe';
-import { PaginationComponent } from '../../shared/components/pagination/pagination.component';
-import { ModalComponent } from '../../shared/components/modal/modal.component';
-import { TableComponent } from '../../shared/components/table/table.component';
+import { IStorageStock } from '@core/models';
+import { WarehouseService } from '@core/services';
+import { ModalComponent, NavbarDashboardComponent, PaginationComponent, TableComponent } from '@shared/components';
+import { CapitalizePipe, FilterPipe } from '@shared/pipes';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-storer-dashboard',
@@ -41,7 +37,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild('myModal') myModal!: ModalComponent;
   @ViewChild('fileInput') fileInput: ElementRef<any> | null = null;
 
-  constructor(private readonly warehouseService: WarehouseService, private formBuilder: FormBuilder) {}
+  constructor(private readonly warehouseService: WarehouseService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.loadData();
