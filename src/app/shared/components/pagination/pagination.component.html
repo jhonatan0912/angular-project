@@ -1,0 +1,39 @@
+<section class="flex flex-col">
+  <div class="py-1 px-4">
+    <nav class="flex items-center justify-between space-x-1">
+      <div>
+        <div class="py-2 px-4 text-center text-sm font-medium text-gray-800">Página {{ currentPage }} de {{ totalPages }}</div>
+      </div>
+
+      <div class="flex items-center space-x-1">
+        <button
+          type="button"
+          (click)="onPageChange(currentPage - 1)"
+          [disabled]="currentPage === 1"
+          class="p-2.5 inline-flex items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
+        >
+          <span aria-hidden="true">«</span>
+          <span class="sr-only">Previous</span>
+        </button>
+
+        <button
+          type="button"
+          class="min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none"
+          aria-current="page"
+        >
+          {{ currentPage }}
+        </button>
+
+        <button
+          type="button"
+          (click)="onPageChange(currentPage + 1)"
+          [disabled]="currentPage >= totalPages"
+          class="p-2.5 inline-flex items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
+        >
+          <span aria-hidden="true">»</span>
+          <span class="sr-only">Next</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</section>

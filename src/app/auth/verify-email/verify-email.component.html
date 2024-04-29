@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+
+<main class="flex justify-center relative top-10">
+  <div class="w-1/3 mt-7 bg-white border border-gray-200 rounded-xl shadow-sm">
+    <div class="p-4 sm:p-7">
+      <div class="text-center">
+        <h1 class="block text-2xl font-bold text-gray-800">Recuperar cuenta</h1>
+        <p class="mt-2 text-sm text-gray-600">
+          ¿Recordaste tu contraseña?
+          <a routerLink="/auth" class="text-blue-600 decoration-2 hover:underline font-medium"> Iniciar sesión </a>
+        </p>
+      </div>
+
+      <div class="mt-5">
+        <!-- Form -->
+        <form [formGroup]="verifyAccountForm" (submit)="verifyAccount()">
+          <div class="grid gap-y-4">
+            <!-- Form Group -->
+            <div>
+              <label for="email" class="block text-sm mb-2">Correo electrónico</label>
+              <div class="relative">
+                <input
+                  type="email"
+                  id="useremail"
+                  name="useremail"
+                  formControlName="useremail"
+                  class="py-3 px-4 block w-full rounded-lg text-sm bg-slate-50 border border-slate-200 focus:outline-none focus:ring focus:border-blue-500"
+                  placeholder="account@email.com"
+                />
+                @if (alertForm) {
+                <div class="mt-2 bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg p-4" role="alert">
+                  <span class="font-bold">Error: </span> Ningun campo debe estar vacio
+                </div>
+                }
+              </div>
+            </div>
+
+            <!-- End Form Group -->
+
+            <button
+              type="submit"
+              class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700"
+            >
+              Recuperar cuenta
+            </button>
+          </div>
+
+          @if (loading) {
+          <div class="py-3">
+            <div
+              class="mt-2 bg-blue-100 flex items-center gap-2 border border-blue-200 text-sm text-blue-800 rounded-lg p-4 dark:bg-blue-800/10 dark:border-blue-900 dark:text-blue-500"
+              role="alert"
+            >
+              <div
+                class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500"
+                role="status"
+                aria-label="loading"
+              >
+                <span class="sr-only">Loading...</span>
+              </div>
+              <span class="font-bold">Procesando...</span>correo electronico
+            </div>
+          </div>
+          }
+        </form>
+        <!-- End Form -->
+      </div>
+    </div>
+  </div>
+</main>
+
+<router-outlet></router-outlet>

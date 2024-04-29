@@ -1,0 +1,33 @@
+<header class=">flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-slate-100 text-sm py-4">
+  <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
+    <div class="flex items-center justify-between">
+      <div class="flex flex-row items-center gap-2">
+        <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
+        <a class="text-xl font-semibold" href="#">LogicTech</a>
+      </div>
+
+      <div class="sm:hidden">
+        <button
+          (click)="toggle()"
+          type="button"
+          class="p-2 inline-flex justify-center items-center gap-x-2 rounded-lg bg-slate-200"
+          data-hs-collapse="#navbar-collapse-with-animation"
+          aria-controls="navbar-collapse-with-animation"
+          aria-label="Toggle navigation"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>        
+        </button>
+      </div>
+    </div>
+    <div *ngIf="onToggle" class="transition-all duration-300 basis-full grow tablet:block">
+      <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+        <a class="font-medium text-blue-500" href="#" aria-current="page">Landing</a>
+        <a class="font-medium text-gray-600 hover:text-gray-400" href="#">Account</a>
+        <a class="font-medium text-gray-600 hover:text-gray-400" href="#">Work</a>
+        <a class="font-medium text-gray-600 hover:text-gray-400" href="#">Blog</a>
+      </div>
+    </div>
+  </nav>
+</header>
